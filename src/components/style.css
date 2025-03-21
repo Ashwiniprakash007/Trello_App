@@ -1,14 +1,14 @@
 /* Global Styling */
 body {
     font-family: Arial, sans-serif;
-    background: url('https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=600&q=80') no-repeat center center/cover;
+    background-color: #0079BF;
+    /* background: url('https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=600&q=80') no-repeat center center/cover; */
     color: white;
     margin: 0;
     padding: 0;
-    color: white;
-    margin: 0;
-    padding: 0;
+    width:100%;
   }
+
   
   /* App Container */
   .app-container {
@@ -17,18 +17,19 @@ body {
     gap: 20px;
     padding: 20px;
     justify-content: center;
-    align-items: start;
+    /* align-items: start; */
   }
   
   /* Column Styling */
 
 
   .w-64 {
-    width: 300px;
-    height: 500px;
-    background: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    width: 250px;
+    height: 550px;
+    background-color: #E2E4E6;
+    /* background: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover; */
     padding: 15px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     top: 0px;
@@ -40,7 +41,7 @@ body {
   h2 {
     text-align: center;
     font-size: 18px;
-    color: #ffe5e5; 
+    color: #4D4D66; 
     margin-bottom: 10px;
   }
   
@@ -99,17 +100,161 @@ body {
     background-color: rgba(255, 254, 254, 0.2);
     border-radius: 10px;
 }
-.card-dragging {
+/* .card-dragging {
     transition: transform 0.2s ease;
-  }
-  
-  .dragging {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    opacity: 0.7;
-  }
+  } */
   
 
+
+  .dragging {
+    transform: scale(1.05);
+    background-color: #ffffff;
+  
+  }
+  
+ 
+/* Default card styles */
+.card {
+  background: white;
+  color:#2d2d2d;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Dark mode support */
+.dark-mode .card {
+  background: #2d2d2d;
+  color: white;
+}
+
+/* Styling while dragging */
+.dragging {
+  transform: scale(1.05); /* Slight Zoom Effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow Effect */
+  opacity: 1 !important; /* 🔥 Fully visible while dragging */
+}
+
+/* Icons styling */
+.card .edit_delete_container {
+  display: flex;
+  gap: 10px;
+}
+
+.card .edit_delete_container .icon {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card .edit_delete_container .icon:hover {
+  transform: scale(1.1);
+}
+
+
+.column {
+  width: 280px;
+  height: 550px;
+  background: #e0e0e0;
+  padding: 10px;
+  /* border-radius: 8px; */
+  text-align: center;
+  margin-left: 10px;
+}
+
+/* Column Title */
+/* Column */
+.column {
+  width: 280px;
+  height: 550px;
+  background: #e0e0e0;
+  padding: 10px;
+  text-align: center;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card List (Scrollable) */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1; 
+  overflow-y: auto; 
+  max-height: 460px; 
+  padding-right: 5px; 
+}
+
+/* Custom Scrollbar */
+.card-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.card-list::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Blue scrollbar */
+  border-radius: 4px;
+}
+
+.card-list::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; 
+}
+
+/* Drop Placeholder */
+.drop-placeholder {
+  height: 80px;  
+  background-color: rgba(0, 86, 179, 0.2);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.2s ease-in-out;
+  opacity: 0; 
+}
+
+.is-dragging .drop-placeholder {
+  opacity: 1; 
+  display: block;
+}
+.dragging-card {
+  opacity: 0 !important;
+}
+
+/* Add Card Button */
+.add-card-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+.add-card-btn:hover {
+  background: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+.draging_card{
+  background-color: #ffffff;
+
+}
 
 
 .modal-overlay {
@@ -180,3 +325,37 @@ body {
   }
 
 
+.custom-drag-preview {
+  position: fixed;
+  pointer-events: none;
+  width:250px;
+  z-index: 1000;
+  opacity: 1 !important; 
+}
+
+/* Fix Default Drag Transparency */
+.card {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.dragging {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  opacity: 1 !important; 
+}
+
+
+.kanban-board{
+  display: flex;;
+  justify-content: space-between;
+  gap: 50px;
+}

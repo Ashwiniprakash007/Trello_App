@@ -1,11 +1,10 @@
-
 import { useDrag } from "react-dnd";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import "./style.css";
 
 const ItemType = "CARD";
 
-const Card = ({ card, index, columnIndex, moveCard, editCard, deleteCard }) => {
+const Card = ({ card, index, columnIndex, editCard, deleteCard }) => {
   const [{ isDragging }, drag] = useDrag({
     type: ItemType,
     item: { index, columnIndex, card },
@@ -17,7 +16,8 @@ const Card = ({ card, index, columnIndex, moveCard, editCard, deleteCard }) => {
   return (
     <div
       ref={drag}
-      className={`bg-white p-3 rounded shadow mb-2 cursor-pointer flex justify-between items-center dark:bg-gray-700 text-black dark:text-white card-dragging ${isDragging ? "dragging" : ""}`}
+      className={`card ${isDragging ? "dragging-card" : ""}`}
+      
     >
       <span>{card}</span>
       <div className="edit_delete_container">
@@ -29,3 +29,4 @@ const Card = ({ card, index, columnIndex, moveCard, editCard, deleteCard }) => {
 };
 
 export default Card;
+
